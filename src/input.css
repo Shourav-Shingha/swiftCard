@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@theme {
+  --font-sans: "Poppins", "Hind Siliguri", sans-serif;
+}

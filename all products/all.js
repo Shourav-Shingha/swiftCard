@@ -45,3 +45,22 @@ const allProducts = () => {
     };
 };
 allProducts();
+const productDetails=(id)=>{
+    fetch(`https://fakestoreapi.com/products/${id}`)
+    .then ((res)=>res.json())
+    .then((data)=>datasById(data));
+
+    const datasById=(data)=>{
+        const modalDetails= document.getElementById("modalDetails")
+        modalDetails.innerHTML=`<h3 class="text-lg font-bold">${data.title}</h3>
+        <h2 class="card-tag btn h-5 mt-3 bg-fuchsia-200 hover:bg-fuchsia-600 rounded-4xl text-gray-500"> ${data.category}</h2>
+          <p class="text-start mt-3 "><i class="fa-solid fa-star fa-beat-fade" style="color: rgba(255, 212, 59, 1);"></i>${data.rating.rate} (${data.rating.count})</p>
+    <p class="py-4">${data.description}</p>
+    <div onclick="productDetails(${data.id})" class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl"><i class="fa-solid fa-eye"></i>Buy Now</div>
+          <button
+            class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-fuchsia-300 hover:bg-fuchsia-600 hover:text-white md:flex-1"><i
+              class="fa-brands fa-opencart  hover:text-white"></i>Add to Card</button>`
+    
+    }
+    datasById(my_modal_5.showModal())
+};
